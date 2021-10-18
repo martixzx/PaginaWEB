@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+    padding: 15rem;
+}
+.logosmash {
+    margin: 10px auto 10px;
+    display: block;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blanchedalmond;
+    text-align: center;
+}
