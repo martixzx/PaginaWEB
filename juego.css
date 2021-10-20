@@ -35,3 +35,9 @@ h1 {
 .escenariofinal {
     background-image: url("https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/9/9a/latest/20180907175905/Destino_final_SSBU.png/1200px-Destino_final_SSBU.png") ;
 }
+.vidapj1, .vidapj2 {
+    color: honeydew;
+}
+.escenariofinal {
+    color: white;
+}
