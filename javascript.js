@@ -6,29 +6,6 @@ function empezar(){
     seleccion.style.display= "flex"
 }
 
-// let nodo.vida.jugador1= (parrafo=div>parrafo) // barra de vida del jugador1 
-// let nodo.vida.jugador2=(parrafo=div>parrafo) // barra de vida del jugador 2 
-
-function atacar (personaje){
-    
-    switch (personaje) {
-        case 'jugador1':
-            vidajugador2 = vida.jugador2 - 10
-            nodo.vida.maquina.innerHTML = vida.jugador1
-            
-            break;
-        case 'jugador2':
-            
-            vidaJugador1 = vida.jugador1 - 10
-            nodo.vida.maquina.innerHTML = vidaMaquina1
-            
-            break;
-       
-    }
-}
-
-
-
 class Player {
     constructor(name, life, imagen){
     this.name = name;
@@ -37,6 +14,7 @@ class Player {
 }
 
 };
+
 let j1 = new Player('Incineroar', 100, "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0727_000_mf_n_00000000_f_n.png") // personajes1
 let j2 = new Player('Pikachu', 100, "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0025_001_mo_n_00000000_f_n.png") //personajes2
 let j3 = new Player('mewtwo', 100, "https://projectpokemon.org/images/sprites-models/homeimg/poke_capture_0150_000_uk_n_00000000_f_n.png")//personajes3
@@ -48,6 +26,7 @@ class Jugador {
 
     constructor(player) {
         this.personaje = player
+
     }
   
 }
@@ -127,16 +106,80 @@ const seleccionarJugador = (player) => {
       } 
 }
 
+let nodoIma = document.getElementById("juga1")
+let nodoIma2 = document.getElementById("juga2")
+
+console.log(nodoIma,nodoIma2)
 
 function escenarioLucha(){
-
+    
     seleccion.style.display= "none"
     pelea.style.display= "flex"
-    innerHTML = jugador1.personaje.imagen
-    innerHTML = jugador2.personaje.imagen
+    
+    
+    nodoIma.setAttribute("src",jugador1.personaje.imagen)
+    nodoIma2.setAttribute("src",jugador2.personaje.imagen)
+    
+    // innerHTML = jugador1.personaje.imagen
+    // innerHTML = jugador2.personaje.imagen
 
 }
 
+let vidajuga1 = document.getElementById("vidapj1")
+let vidajuga2 = document.getElementById("vidapj2")
 
 
 
+
+// let nodo.vida.jugador1= (parrafo=div>parrafo) // barra de vida del jugador1 
+// let nodo.vida.jugador2=(parrafo=div>parrafo) // barra de vida del jugador 2 
+
+
+let restavida = (vidarestar) => (vidarestar) - 10
+
+let nodofinal = document.getElementById("ganador")
+let nodofinale = document.getElementById("fotofinal")
+
+function atacar (personaje){
+    
+    switch (personaje) {
+        case 'jugador1':
+            
+
+            
+            console.log(jugador1.personaje.life)
+            
+            jugador2.personaje.life = restavida(jugador2.personaje.life)
+            vidajuga2.innerHTML = jugador2.personaje.life
+            if (jugador2.personaje.life == 0) {
+                ganador(jugador1)
+                nodofinal.setAttribute("src",jugador1.personaje.imagen)
+            }
+            else {
+                console.log("sigue luchando")
+            }
+
+        break;
+        case 'jugador2':
+            
+            jugador1.personaje.life = restavida(jugador1.personaje.life)
+            vidajuga1.innerHTML = jugador1.personaje.life
+            
+            if (jugador1.personaje.life == 0) {
+                ganador(jugador2)
+                nodofinal.setAttribute("src",jugador2.personaje.imagen)
+            }
+            else {
+                console.log("sigue luchando")
+            }
+                
+        break;
+    }
+
+}
+function ganador (c) {
+    pelea.style.display= "none"
+    fotofinal.style.display= "flex"
+    nodofinal.setAttribute("src",c)
+    alert ("GANADOR");
+}

@@ -44,16 +44,25 @@
         </span></div>
     </div>
 
-    <div id="pelea" style="display: none;">
-        <div> Jugador 1 
-            <img src="" alt="">
-            <button onclick="atacar('jugador1')">pelear</button>
+    <span class="escenariofinal"><div id="pelea" style="display: none;">
+        <div class="textoj1"> Jugador 1 
+            <div>
+                <img src="" alt="" id="juga1">
+            </div>
+                <div id="vidapj1"></div>
+                <button onclick="atacar('jugador1')">pelear</button>
         </div>
-        <div> Jugador 2
-            <img src="" alt="">
-            <button onclick="atacar('jugador2')">pelear</button>
+        <div class="textoj2"> Jugador 2
+            <div>
+                <img src="" alt="" id="juga2">
+            </div>
+                <div id="vidapj2"> </div>
+                <button onclick="atacar('jugador2')">pelear</button>
+        </div>
+    </span></div>
 
-        </div>
+    <div id="fotofinal" style="display: none;">
+        <img src="" alt="" id="ganador">
     </div>
 
 
